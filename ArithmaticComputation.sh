@@ -43,3 +43,19 @@ do
 	done
 done
 echo "Results in Descending order ${resultsArray[@]}"
+
+#Sorting the results in Ascending order
+
+for index in ${!resultsArray[@]}
+do
+   for count in ${!resultsArray[@]}
+   do
+      if [[ ${resultsArray[index]} -lt ${resultsArray[count]} ]]
+      then
+         temp=${resultsArray[index]}
+         resultsArray[index]=${resultsArray[count]}
+         resultsArray[count]=$temp
+      fi
+   done
+done
+echo "Results in Ascending order ${resultsArray[@]}"
