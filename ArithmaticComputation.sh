@@ -17,8 +17,7 @@ results[result1]=$operation1
 results[result2]=$operation2
 results[result3]=$operation3
 results[result4]=$operation4
-
-echo ${results[@]}
+echo "The Dictionary contains values: ${results[@]}"
 
 #Reading the values from Dictionary and storing into the Array
 declare -a resultsArray
@@ -27,4 +26,20 @@ for result in ${results[@]}
 do
 	resultsArray[index++]=$result
 done
-echo ${resultsArray[@]}
+echo "The Array contains Element: ${resultsArray[@]}"
+
+#Sorting the results in Descending order
+
+for index in ${!resultsArray[@]}
+do
+	for count in ${!resultsArray[@]}
+	do
+		if [[ ${resultsArray[index]} -gt ${resultsArray[count]} ]]
+		then
+			temp=${resultsArray[index]}
+			resultsArray[index]=${resultsArray[count]}
+			resultsArray[count]=$temp
+		fi
+	done
+done
+echo "Results in Descending order ${resultsArray[@]}"
