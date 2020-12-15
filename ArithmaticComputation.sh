@@ -7,4 +7,4 @@ read -p "Enter Third value: " input3
 
 operation1=$(( input1 + input2 * input3 ))
 operation2=$(( input1 * input2 + input3 ))
-
+operation3=$(( input3 + input1 / input2 ))
